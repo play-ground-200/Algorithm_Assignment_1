@@ -23,11 +23,11 @@ public class Algo_7 {
                         j++;
                     }      
                 }
-                String largest = inputsen.substring(0, spaces[0]-1);
-                String smallest = inputsen.substring(0, spaces[0]-1);
+                String largest = inputsen.substring(0, spaces[0]);
+                String smallest = inputsen.substring(0, spaces[0]);
                 for(int i =1;i<j-1;i++){
 
-                    if(i==j-2){
+                    if(i==j-1){
                     largest = (largest.length()<(inputsen.substring(spaces[i]+1)).length())? (inputsen.substring(spaces[i]+1)): largest;
                     smallest = (smallest.length()>(inputsen.substring(spaces[i]+1)).length())? (inputsen.substring(spaces[i]+1)): smallest;
                     }
@@ -39,8 +39,8 @@ public class Algo_7 {
                    // if (i==j-1)System.out.print(" "+inputsen.substring(0, spaces[j-i-1]) );
                     //else System.out.print(inputsen.substring(spaces[j-i-2], spaces[j-i-1]) );
                 }
-                System.out.println("Smallest word : "+ smallest);
-                System.out.println("largest word : "+ largest);
+                System.out.println("Smallest word : "+ smallest+"_");
+                System.out.println("largest word : "+ largest+"_");
             }
 
 
