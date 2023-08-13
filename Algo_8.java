@@ -1,13 +1,14 @@
 public class Algo_8 {
     public static void main(String[] args) {
 
-        int[] numA = {5, 7, -2, 3, 4, 6, 7};
+        int[] numA = {5, 7, -2, 3, 4, 6, -8};
         int[] numB = {7, 8, -8, 2, 1, -9, 6};
         
-        String AdB  = "";
-        String BdA  = "";
+        String A_B  = "";
+        String B_A  = "";
         String delta = "";
         String union = "";
+        String Intersection = "";
         System.out.print("Intercextion : ");
        
         
@@ -17,23 +18,16 @@ public class Algo_8 {
 
              for(int j  = 0;j<numB.length;j++)
             {
+
                 if(i==0){union = union + numB[j] + " "; }
                 
-                if(j==i){
-                    int myint = (numA[i]*100/numB[i]);
-                    AdB = AdB +(double) myint/100 + " ";
-                     myint = (numB[i]*100/numA[i]);
-                    BdA = BdA +(double) myint/100 + " ";
-                    delta = delta + (numA[i] - numB[i]) + " ";
-
-                }
                 if(numA[i]==numB[j]){
                 
                     if(flag==false){
                         boolean flag2 = false;
                         for(int k = 0 ;k<i;k++){
                             if(numA[i]==numA[k])flag2 = true;
-                            if (k==i-1 && flag2==false){System.out.print(numA[i] + " ");}
+                            if (k==i-1 && flag2==false){Intersection= Intersection +numA[i] + " ";}
 
                         }
 
@@ -44,14 +38,32 @@ public class Algo_8 {
                 }
                 if(j==numB.length-1 && flag ==false){
                     union = union + numA[i] +" ";
-                    
+                    A_B = A_B + numA[i] + " ";
+                    delta = delta + numA[i]+" ";
                 }
+
                 
             
             }
+
                
-    }
-    System.out.println("\n"+"Union : "+union+"\n"+"numA / numB : "+AdB+"\n"+"numB / numA : "+BdA+"\n"+"Delta : "+delta+"\n");
+        }
+        String[] interarray = Intersection.split(" ");
+        
+        for(int i =0;i<numB.length;i++)
+        {
+            boolean flag3 = false;
+            for(int j =0;j<interarray.length;j++)
+        {
+          if((numB[i]+"").equalsIgnoreCase(interarray[j])) flag3 = true;
+          if(j==interarray.length-1 && !flag3){
+            B_A = B_A + numB[i]+" ";
+            delta = delta + numB[i]+ " ";
+
+          }
+        }
+    System.out.println("\nIntercextion : "+Intersection+"\nUnion : "+union+"\nnumA / numB : "+A_B+"\nnumB / numA : "+B_A+"\nDelta : "+delta+"\n");
     
-}
+        }
+    }
 }
